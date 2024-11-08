@@ -5,7 +5,6 @@ import EquipmentItem from "./EquipmentItem";
 const equipmentList = [
   { name: "Elevator Model A", modelUrl: "/models/elevatorA.glb" },
   { name: "Escalator Model B", modelUrl: "/models/escalatorB.glb" },
-  // Add more equipment as needed
 ];
 
 const EquipmentLibrary = () => {
