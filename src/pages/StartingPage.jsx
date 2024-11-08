@@ -10,6 +10,8 @@ import {
   YoutubeOutlined,
 } from "@ant-design/icons";
 
+import { DownOutlined, RightOutlined } from "@ant-design/icons";
+
 import Kone_Logo from "../assets/Kone_Logo.png";
 import Kone_Background from "../assets/Kone_Background.png";
 
@@ -97,14 +99,16 @@ const StartingPage = () => {
                     href="https://www.kone.com/en/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#000" }}
+                    style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
                   >
                     Contact KONE
+                    <RightOutlined style={{ marginLeft: "8px" }} /> {/* Right arrow for Contact KONE */}
                   </a>
                 </Menu.Item>
                 <Menu.Item key="language">
-                  <a href="/english" style={{ color: "#000" }}>
+                  <a href="/english" style={{ color: "#1550F6" }}>
                     ENGLISH
+                    <DownOutlined style={{ marginLeft: "8px" }} /> {/* Down arrow for ENGLISH */}
                   </a>
                 </Menu.Item>
               </Menu>
