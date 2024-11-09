@@ -21,7 +21,7 @@ const ExportModelButton = ({ scene }) => {
         const blob = new Blob([output], { type: "application/octet-stream" });
         const link = document.createElement("a");
         link.href = URL.createObjectURL(blob);
-        link.download = "elevator_model.gltf";
+        link.download = "scene.gltf";
         link.click();
         URL.revokeObjectURL(link.href);
       },
