@@ -30,6 +30,8 @@ To make it easy for you to get started with Github, here's a list of recommended
 
 ## 🚀 Quick start
 
+### Option 1: 
+
 1. **Clone the Repository**
 
    ```bash
@@ -39,7 +41,7 @@ To make it easy for you to get started with Github, here's a list of recommended
 
    - If your machine cannot reach Gitlab at this stage and nothing happens, it's a sign of a firewall issue between your machine and Github.
 
-2. **Install Dependencies**
+2. **Install Dependencies** 
 
    ```bash
    npm install
@@ -53,7 +55,28 @@ To make it easy for you to get started with Github, here's a list of recommended
 
 4. **Open the application in your browser**
    ```bash
-   http://localhost:5173/
+   http://localhost:5173
+   ```
+### Option 2: Using docker 
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/VienThanh12/hackathon-junction-projects.git
+   cd hackathon-junction-projects
+   ```
+
+   - If your machine cannot reach Gitlab at this stage and nothing happens, it's a sign of a firewall issue between your machine and Github.
+
+2. **Using docker compose to run the app**
+
+   ```bash
+   docker compose up
+   ```
+
+3. **Open the application in your browser**
+   ```bash
+   http://localhost:5173
    ```
 
 # License
