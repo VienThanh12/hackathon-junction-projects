@@ -267,9 +267,9 @@ const ThreeDModelViewer = ({
         <ContactShadows opacity={0.7} />
       </Canvas>
 
-      {/* <div style={styles.buttonContainer}>
+      <div style={styles.buttonContainer}>
         <PopUpButton onClick={handlePopUpClick} />
-      </div> */}
+      </div>
 
       <InlinePopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
     </div>
