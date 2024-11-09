@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Layout, Typography, Button, Card, notification, Spin } from "antd";
 import { useNavigate } from "react-router-dom";
-import { HomeOutlined } from "@ant-design/icons";
+import { HomeOutlined, BuildOutlined } from "@ant-design/icons";
 import BuildingInputForm from "../components/BuildingInputForm";
 
 const { Header, Content } = Layout;
@@ -44,6 +44,9 @@ const HomePage = () => {
     setFormReset(true); // Triggers form reset in BuildingInputForm component
     setTimeout(() => setFormReset(false), 0); // Reset the flag immediately after reset
   };
+  const handleModelingClick = () => {
+    navigate("/modeling");
+  };
 
   return (
     <Layout
@@ -74,19 +77,36 @@ const HomePage = () => {
         >
           2D to 3D Building Model Converter
         </Title>
-        <Button
-          type="primary"
-          icon={<HomeOutlined />}
-          onClick={handleHomeClick}
-          style={{
-            backgroundColor: "#1890ff",
-            border: "none",
-            color: "#fff",
-            borderRadius: "4px",
-          }}
-        >
-          Home
-        </Button>
+
+        <div>
+          <Button
+            type="primary"
+            icon={<HomeOutlined />}
+            onClick={handleHomeClick}
+            style={{
+              backgroundColor: "#1890ff",
+              border: "none",
+              color: "#fff",
+              borderRadius: "4px",
+            }}
+          >
+            Home
+          </Button>
+          <Button
+            type="primary"
+            icon={<BuildOutlined />} // Added icon
+            onClick={handleModelingClick}
+            style={{
+              backgroundColor: "#1890ff",
+              border: "none",
+              color: "#fff",
+              borderRadius: "4px",
+              marginLeft: "10px",
+            }}
+          >
+            Modeling
+          </Button>
+        </div>
       </Header>
 
       {/* Content Section */}

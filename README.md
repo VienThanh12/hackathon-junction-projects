@@ -30,7 +30,7 @@ To make it easy for you to get started with Github, here's a list of recommended
 
 ## 🚀 Quick start
 
-### Option 1: 
+### Option 1:
 
 1. **Clone the Repository**
 
@@ -41,7 +41,7 @@ To make it easy for you to get started with Github, here's a list of recommended
 
    - If your machine cannot reach Gitlab at this stage and nothing happens, it's a sign of a firewall issue between your machine and Github.
 
-2. **Install Dependencies** 
+2. **Install Dependencies**
 
    ```bash
    npm install
@@ -57,7 +57,8 @@ To make it easy for you to get started with Github, here's a list of recommended
    ```bash
    http://localhost:5173
    ```
-### Option 2: Using docker 
+
+### Option 2: Using docker
 
 1. **Clone the Repository**
 
@@ -78,6 +79,14 @@ To make it easy for you to get started with Github, here's a list of recommended
    ```bash
    http://localhost:5173
    ```
+
+# Challenge
+
+The key challenge is that there is no easy-to-use tool to:
+
+Create a simple and identifiable 3D model of the building based on a limited set of input parameters available such as the building address and/or 2D floor plans, and floor heights
+Import, position and orient existing equipment 3D models, especially elevators to the 3D model of the building with drag-and-drop type of process.
+Export the model and its components (e.g., equipment) into a standard 3D file format for further processing, e.g., deploying the model as part of a digital twin application.
 
 # License
 

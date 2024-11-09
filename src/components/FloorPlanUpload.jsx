@@ -14,10 +14,10 @@ const FloorPlanUpload = () => {
   return (
     <Form.Item
       name="floorPlans"
-      label="Upload Floor Plans"
+      label="Upload 2D Pictures"
       valuePropName="fileList"
       getValueFromEvent={normFile}
-      rules={[{ required: true, message: "Please upload floor plans!" }]}
+      rules={[{ required: true, message: "Please upload some 2D pictures!" }]}
     >
       <Upload
         name="files"
@@ -26,7 +26,7 @@ const FloorPlanUpload = () => {
         beforeUpload={() => false} // Prevent automatic upload
         listType="picture"
       >
-        <Button icon={<UploadOutlined />}>Select Floor Plans</Button>
+        <Button icon={<UploadOutlined />}>Select some 2D Pictures </Button>
       </Upload>
     </Form.Item>
   );

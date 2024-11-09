@@ -14,11 +14,15 @@ const BuildingInputForm = () => {
   // Steps data
   const steps = [
     {
-      title: "Floor Plans",
+      title: "2D Pictures",
       content: <FloorPlanUpload />,
     },
     {
       title: "Floor Heights",
+      content: <FloorHeightInput />,
+    },
+    {
+      title: "Floor Plans",
       content: <FloorHeightInput />,
     },
   ];
