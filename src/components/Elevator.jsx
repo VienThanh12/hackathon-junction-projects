@@ -9,8 +9,8 @@ export function Model(props) {
       {...props}
       ref={group}
       dispose={null}
-      position={[1, 1, 1]}
-      scale={[0.1, 0.1, 0.1]}
+      position={[2, 2, 0]}
+      scale={[0.05, 0.05, 0.05]}
     >
       <mesh
         castShadow

@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import { Button, Modal, Radio } from "antd";
-import { ExportOutlined } from "@ant-design/icons";
-import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter";
 import { ImportOutlined } from "@ant-design/icons";
 import Import3D from "./Import3D";
 
