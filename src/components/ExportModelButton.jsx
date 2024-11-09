@@ -8,24 +8,45 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleExportModel = () => {
-    const exporter = new GLTFExporter();
-    exporter.parse(
-      scene,
-      (result) => {
-        const output = JSON.stringify(result);
-        const blob = new Blob([output], { type: "application/octet-stream" });
-        const link = document.createElement("a"); // Corrected element creation
-        link.href = URL.createObjectURL(blob);
-        link.download = "/models/elevator.gltf"; // Provide a valid filename with extension
-        link.click();
-        URL.revokeObjectURL(link.href); // Clean up the URL object after download
-      },
-      { binary: true }
-    );
+    // const exporter = new GLTFExporter();
+    // exporter.parse(
+    //   scene,
+    //   (result) => {
+    //     const output = JSON.stringify(result);
+    //     const blob = new Blob([output], { type: "application/octet-stream" });
+    //     const link = document.createElement("a"); // Corrected element creation
+    //     link.href = URL.createObjectURL(blob);
+    //     link.download = "/models/elevator.gltf"; // Provide a valid filename with extension
+    //     link.click();
+    //     URL.revokeObjectURL(link.href); // Clean up the URL object after download
+    //   },
+    //   { binary: true }
+    // );
+    try {
+      // Create a new anchor element
+      const link = document.createElement("a");
+
+      // Set the href attribute to the image URL
+      link.href = "/models/Axle shaft.ply";
+
+      // Set crossOrigin to allow external images to be downloaded
+      link.crossOrigin = "anonymous";
+
+      // Set download attribute with a default filename or customize as needed
+      link.download = "/models/Axle shaft.ply";
+
+      // Append link to the document and trigger the download
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up by removing the link element
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Image download failed:", error);
+    }
   };
 
   const handleExportImage = () => {
-    console.log("2");
     try {
       // Create a new anchor element
       const link = document.createElement("a");
