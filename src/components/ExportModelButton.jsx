@@ -12,24 +12,42 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
     exporter.parse(
       scene,
       (result) => {
-        const output = JSON.stringify(result); 
-        const blob = new Blob([output], { type: "application/octet-stream" }); 
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob); 
-        link.download = "building-model.glb"; 
-        link.click(); 
+        const output = JSON.stringify(result);
+        const blob = new Blob([output], { type: "application/octet-stream" });
+        const link = document.createElement("a"); // Corrected element creation
+        link.href = URL.createObjectURL(blob);
+        link.download = "/models/elevator.gltf"; // Provide a valid filename with extension
+        link.click();
+        URL.revokeObjectURL(link.href); // Clean up the URL object after download
       },
-      { binary: true } 
+      { binary: true }
     );
   };
 
   const handleExportImage = () => {
-    const canvas = renderer.domElement;
-    const image = canvas.toDataURL("image/png");
-    const link = document.createElement("a");
-    link.href = image;
-    link.download = "building-model.png";
-    link.click();
+    console.log("2");
+    try {
+      // Create a new anchor element
+      const link = document.createElement("a");
+
+      // Set the href attribute to the image URL
+      link.href = "/Kone_Logo.png";
+
+      // Set crossOrigin to allow external images to be downloaded
+      link.crossOrigin = "anonymous";
+
+      // Set download attribute with a default filename or customize as needed
+      link.download = "/Kone_Logo.png";
+
+      // Append link to the document and trigger the download
+      document.body.appendChild(link);
+      link.click();
+
+      // Clean up by removing the link element
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Image download failed:", error);
+    }
   };
 
   const handleExportTypeChange = (e) => {
@@ -37,7 +55,7 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
   };
 
   const showModal = () => {
-    setIsModalVisible(true); 
+    setIsModalVisible(true);
   };
 
   const handleOk = () => {
@@ -46,11 +64,11 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
     } else if (exportType === "image") {
       handleExportImage();
     }
-    setIsModalVisible(false); 
+    setIsModalVisible(false);
   };
 
   const handleCancel = () => {
-    setIsModalVisible(false); 
+    setIsModalVisible(false);
   };
 
   return (
@@ -58,7 +76,7 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
       <Button
         type="primary"
         icon={<ExportOutlined />}
-        onClick={showModal} 
+        onClick={showModal}
         block
       >
         Export Model
@@ -66,12 +84,12 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
       <Modal
         title="Export Options"
         visible={isModalVisible}
-        onOk={handleOk} 
-        onCancel={handleCancel} 
-        destroyOnClose 
+        onOk={handleOk}
+        onCancel={handleCancel}
+        destroyOnClose
       >
         <Radio.Group value={exportType} onChange={handleExportTypeChange}>
-          <Radio value="model">Export as 3D Model (.glb)</Radio>
+          <Radio value="model">Export as 3D Model (.ply)</Radio>
           <Radio value="image">Export as 2D Image (.png)</Radio>
         </Radio.Group>
       </Modal>
