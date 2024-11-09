@@ -12,23 +12,33 @@ const FloorPlanUpload = () => {
   };
 
   return (
-    <Form.Item
-      name="floorPlans"
-      label="Upload 2D Pictures"
-      valuePropName="fileList"
-      getValueFromEvent={normFile}
-      rules={[{ required: true, message: "Please upload some 2D pictures!" }]}
+    <div
+      style={{
+        maxHeight: "200px", // Adjust height as needed
+        overflowY: "auto",
+        border: "1px solid #d9d9d9",
+        padding: "10px",
+        borderRadius: "4px",
+      }}
     >
-      <Upload
-        name="files"
-        accept=".jpg,.jpeg,.png,.pdf,.dxf"
-        multiple
-        beforeUpload={() => false} // Prevent automatic upload
-        listType="picture"
+      <Form.Item
+        name="floorPlans"
+        label="Upload 2D Pictures"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+        rules={[{ required: true, message: "Please upload some 2D pictures!" }]}
       >
-        <Button icon={<UploadOutlined />}>Select some 2D Pictures </Button>
-      </Upload>
-    </Form.Item>
+        <Upload
+          name="files"
+          accept=".jpg,.jpeg,.png,.pdf,.dxf"
+          multiple
+          beforeUpload={() => false} // Prevent automatic upload
+          listType="picture"
+        >
+          <Button icon={<UploadOutlined />}>Select some 2D Pictures </Button>
+        </Upload>
+      </Form.Item>
+    </div>
   );
 };
 
