@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Modal, Radio } from "antd";
 import { ImportOutlined } from "@ant-design/icons";
 import Import3D from "./Import3D";
 
-const ImportModelButton = ({ file, setFile }) => {
+const ImportModelButton = ({
+  file,
+  setFile,
+  scale,
+  setScale,
+  okFile,
+  setOkFile,
+}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [exportType, setExportType] = useState("model");
 
@@ -13,10 +20,13 @@ const ImportModelButton = ({ file, setFile }) => {
 
   const handleOk = () => {
     setIsModalVisible(false);
+    setOkFile(true);
+    okFile = true;
   };
 
   const handleCancel = () => {
     setIsModalVisible(false);
+    setFile(null);
   };
 
   const showModal = () => {
@@ -43,7 +53,14 @@ const ImportModelButton = ({ file, setFile }) => {
         onCancel={handleCancel}
         destroyOnClose
       >
-        <Import3D file={file} setFile={setFile} />
+        <Import3D
+          file={file}
+          setFile={setFile}
+          scale={scale}
+          setScale={setScale}
+          okFile={okFile}
+          setOkFile={setOkFile}
+        />
       </Modal>
     </div>
   );

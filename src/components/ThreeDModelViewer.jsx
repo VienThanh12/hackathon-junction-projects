@@ -15,16 +15,18 @@ import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
 import PopUpButton from "./PopUpButton"; 
 
 function Model() {
-
   // Load the .ply file
   const geometry = useLoader(PLYLoader, "/models/final-lego2-mesh.ply");
 
   return (
-    <mesh geometry={geometry} scale={[20, 20, 20]} position={[-10, -10, 0]} rotation={[30, 0, 0]}>
-        <meshStandardMaterial vertexColors={true} />
-      </mesh>
-
-
+    <mesh
+      geometry={geometry}
+      scale={[20, 20, 20]}
+      position={[-10, -10, 0]}
+      rotation={[30, 0, 0]}
+    >
+      <meshStandardMaterial vertexColors={true} />
+    </mesh>
   );
 }
 
@@ -41,68 +43,75 @@ const MovableElevator = () => {
       switch (event.key) {
         case "ArrowUp":
         case "w":
-            elevatorRef.current.position.y += moveSpeed;
-            break;
+          elevatorRef.current.position.y += moveSpeed;
+          break;
         case "ArrowDown":
         case "s":
-            elevatorRef.current.position.y -= moveSpeed;
-            break;
+          elevatorRef.current.position.y -= moveSpeed;
+          break;
         case "ArrowLeft":
         case "a":
-            elevatorRef.current.position.x -= moveSpeed;
-            break;
+          elevatorRef.current.position.x -= moveSpeed;
+          break;
         case "ArrowRight":
         case "d":
-
-            elevatorRef.current.position.x += moveSpeed;
-            break;
+          elevatorRef.current.position.x += moveSpeed;
+          break;
         case "q": // Move up
-            elevatorRef.current.position.z += moveSpeed;
-            break;
+          elevatorRef.current.position.z += moveSpeed;
+          break;
         case "e": // Move down
-            elevatorRef.current.position.z -= moveSpeed;
-            break;
+          elevatorRef.current.position.z -= moveSpeed;
+          break;
         case "r": // Rotate around X-axis (clockwise)
-            elevatorRef.current.rotation.x += rotateSpeed;
-            break;
+          elevatorRef.current.rotation.x += rotateSpeed;
+          break;
         case "f": // Rotate around X-axis (counterclockwise)
-            elevatorRef.current.rotation.x -= rotateSpeed;
-            break;
+          elevatorRef.current.rotation.x -= rotateSpeed;
+          break;
         case "t": // Rotate around Y-axis (clockwise)
-            elevatorRef.current.rotation.y += rotateSpeed;
-            break;
+          elevatorRef.current.rotation.y += rotateSpeed;
+          break;
         case "g": // Rotate around Y-axis (counterclockwise)
-            elevatorRef.current.rotation.y -= rotateSpeed;
-            break;
+          elevatorRef.current.rotation.y -= rotateSpeed;
+          break;
         case "y": // Rotate around Z-axis (clockwise)
-            elevatorRef.current.rotation.z += rotateSpeed;
-            break;
+          elevatorRef.current.rotation.z += rotateSpeed;
+          break;
         case "h": // Rotate around Z-axis (counterclockwise)
-            elevatorRef.current.rotation.z -= rotateSpeed;
-            break;
+          elevatorRef.current.rotation.z -= rotateSpeed;
+          break;
         case "i": // Increase scale on X-axis
-            elevatorRef.current.scale.x += scaleSpeed;
-            break;
+          elevatorRef.current.scale.x += scaleSpeed;
+          break;
         case "k": // Decrease scale on X-axis
-            elevatorRef.current.scale.x = Math.max(0.1, elevatorRef.current.scale.x - scaleSpeed);
-            break;
+          elevatorRef.current.scale.x = Math.max(
+            0.1,
+            elevatorRef.current.scale.x - scaleSpeed
+          );
+          break;
         case "o": // Increase scale on Y-axis
-            elevatorRef.current.scale.y += scaleSpeed;
-            break;
+          elevatorRef.current.scale.y += scaleSpeed;
+          break;
         case "l": // Decrease scale on Y-axis
-            elevatorRef.current.scale.y = Math.max(0.1, elevatorRef.current.scale.y - scaleSpeed);
-            break;
+          elevatorRef.current.scale.y = Math.max(
+            0.1,
+            elevatorRef.current.scale.y - scaleSpeed
+          );
+          break;
         case "u": // Increase scale on Z-axis
-            elevatorRef.current.scale.z += scaleSpeed;
-            break;
+          elevatorRef.current.scale.z += scaleSpeed;
+          break;
         case "j": // Decrease scale on Z-axis
-            elevatorRef.current.scale.z = Math.max(0.1, elevatorRef.current.scale.z - scaleSpeed);
-            break;
+          elevatorRef.current.scale.z = Math.max(
+            0.1,
+            elevatorRef.current.scale.z - scaleSpeed
+          );
+          break;
 
         default:
-            break;
-    }    
-    
+          break;
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -124,13 +133,14 @@ const InlinePopup = ({ isOpen, onClose }) => {
     <div style={styles.popup}>
       <h2>How to move the 3D objects</h2>
       <p>
-        w - sdfwefwef<br/>
-        a -<br/>
-        s - <br/>
-        d -<br/>
-        q -<br/> 
-        f -<br/>
-        g -<br/>
+        w - sdfwefwef
+        <br />
+        a -<br />
+        s - <br />
+        d -<br />
+        q -<br />
+        f -<br />
+        g -<br />
       </p>
       <button onClick={onClose} style={styles.closeButton}>
         Close
@@ -139,34 +149,86 @@ const InlinePopup = ({ isOpen, onClose }) => {
   );
 };
 
-const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => {
+const ThreeDModelViewer = ({
+  openElevator,
+  setOpenElevator,
+  file,
+  setFile,
+  scale,
+  setScale,
+  okFile,
+}) => {
   const [model, setModel] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const canvasRef = useRef();
 
   useEffect(() => {
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-    }
+    } else setModel(null);
   }, [file, setFile]);
 
   const ModelViewer = ({ model }) => {
     const { scene } = useGLTF(model);
-    return <primitive object={scene} scale={1} />;
+    return <primitive object={scene} scale={scale} />;
   };
 
-  const exportModelAsPng = () => {
-    const canvas = canvasRef.current?.gl.domElement;
-    if (canvas) {
-      canvas.toBlob((blob) => {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "3DModelView.png";
-        link.click();
-        URL.revokeObjectURL(link.href);
-      }, "image/png");
-    }
+  const MovableObject = () => {
+    const object = useRef();
+
+    // Define movement speed
+    const moveSpeed = 1;
+
+    // Listen for key presses to control movement
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (!object.current) return;
+
+        switch (event.key) {
+          case "ArrowUp":
+          case "w":
+          case "W":
+            object.current.position.y += moveSpeed;
+            break;
+          case "ArrowDown":
+          case "s":
+          case "S":
+            object.current.position.y -= moveSpeed;
+            break;
+          case "ArrowLeft":
+          case "a":
+          case "A":
+            object.current.position.x -= moveSpeed;
+            break;
+          case "ArrowRight":
+          case "d":
+          case "D":
+            object.current.position.x += moveSpeed;
+            break;
+          case "q": // Move up
+          case "Q":
+            object.current.position.z += moveSpeed;
+            break;
+          case "e": // Move down
+          case "E":
+            object.current.position.z -= moveSpeed;
+            break;
+          default:
+            break;
+        }
+      };
+
+      // Add event listener for keydown
+      window.addEventListener("keydown", handleKeyDown);
+
+      // Clean up event listener on component unmount
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
+    return (
+      <mesh ref={object}>
+        <ModelViewer model={model} />
+      </mesh>
+    );
   };
 
   const handlePopUpClick = () => {
@@ -175,38 +237,42 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
 
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-    <Canvas camera={{ position: [0, 0, 20] }}>
-
+      <Canvas camera={{ position: [0, 0, 20] }}>
         <Environment preset="sunset" />
-        
+
         {/* Ambient light for base illumination */}
         <ambientLight intensity={0.5} />
 
         {/* Directional light for strong light and shadow effects */}
         <directionalLight
-            position={[10, 10, 5]}
-            intensity={1}
-            castShadow
-            shadow-mapSize-width={1024}
-            shadow-mapSize-height={1024}
+          position={[10, 10, 5]}
+          intensity={1}
+          castShadow
+          shadow-mapSize-width={1024}
+          shadow-mapSize-height={1024}
         />
 
         {/* Point light for focused lighting and to enhance color visibility */}
         <pointLight position={[-10, -10, 10]} intensity={0.7} />
 
         {openElevator && (
-            <MovableElevator
-                openElevator={openElevator}
-                setOpenElevator={setOpenElevator}
-            />
+          <MovableElevator
+            openElevator={openElevator}
+            setOpenElevator={setOpenElevator}
+          />
         )}
 
         <OrbitControls />
         <Model />
+
         <ContactShadows opacity={0.7} />
         
         <Wall1 />
         <Wall2 />
+
+
+        {model && okFile && <MovableObject />}
+
       </Canvas>
 
       <div style={styles.buttonContainer}>
@@ -229,7 +295,7 @@ const styles = {
     textAlign: "center",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     position: "absolute",
-    top: "150px", 
+    top: "150px",
     left: "50%",
     transform: "translateX(-50%)",
   },
