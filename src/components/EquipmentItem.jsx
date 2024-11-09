@@ -12,6 +12,8 @@ const EquipmentItem = ({
   equipment,
   file,
   setFile,
+  okFile,
+  setOkFile,
 }) => {
   const [isPreviewing, setIsPreviewing] = React.useState(false);
   const handleAddEquipment = () => {
@@ -26,7 +28,7 @@ const EquipmentItem = ({
     setFile(null);
   };
 
-  console.log(file);
+  console.log(okFile);
   return (
     <div>
       <List.Item

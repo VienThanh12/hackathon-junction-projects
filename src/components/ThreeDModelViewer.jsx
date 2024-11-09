@@ -41,24 +41,30 @@ const MovableElevator = () => {
       switch (event.key) {
         case "ArrowUp":
         case "w":
+        case "W":
           elevatorRef.current.position.y += moveSpeed;
           break;
         case "ArrowDown":
         case "s":
+        case "S":
           elevatorRef.current.position.y -= moveSpeed;
           break;
         case "ArrowLeft":
         case "a":
+        case "A":
           elevatorRef.current.position.x -= moveSpeed;
           break;
         case "ArrowRight":
         case "d":
+        case "D":
           elevatorRef.current.position.x += moveSpeed;
           break;
         case "q": // Move up
+        case "Q":
           elevatorRef.current.position.z += moveSpeed;
           break;
         case "e": // Move down
+        case "E":
           elevatorRef.current.position.z -= moveSpeed;
           break;
         default:
@@ -85,6 +91,9 @@ const ThreeDModelViewer = ({
   setOpenElevator,
   file,
   setFile,
+  scale,
+  setScale,
+  okFile,
 }) => {
   const [model, setModel] = useState(null);
 
@@ -93,12 +102,12 @@ const ThreeDModelViewer = ({
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-    }
-  }, [file, setFile]);
+    } else setModel(false);
+  }, [file, model]);
 
   const ModelViewer = ({ model }) => {
     const { scene } = useGLTF(model);
-    return <primitive object={scene} scale={1} />;
+    return <primitive object={scene} scale={scale} />;
   };
 
   const MovableObject = () => {
@@ -115,24 +124,30 @@ const ThreeDModelViewer = ({
         switch (event.key) {
           case "ArrowUp":
           case "w":
+          case "W":
             object.current.position.y += moveSpeed;
             break;
           case "ArrowDown":
           case "s":
+          case "S":
             object.current.position.y -= moveSpeed;
             break;
           case "ArrowLeft":
           case "a":
+          case "A":
             object.current.position.x -= moveSpeed;
             break;
           case "ArrowRight":
           case "d":
+          case "D":
             object.current.position.x += moveSpeed;
             break;
           case "q": // Move up
+          case "Q":
             object.current.position.z += moveSpeed;
             break;
           case "e": // Move down
+          case "E":
             object.current.position.z -= moveSpeed;
             break;
           default:
@@ -167,7 +182,7 @@ const ThreeDModelViewer = ({
 
         <OrbitControls />
         <Model />
-        {model && <MovableObject />}
+        {model && okFile && <MovableObject />}
         <ContactShadows opacity={0.7} />
       </Canvas>
     </div>

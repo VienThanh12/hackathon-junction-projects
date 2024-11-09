@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Form, Upload, Button, message } from "antd";
+import { Form, Upload, Button, InputNumber, message } from "antd";
 import { UploadOutlined } from "@ant-design/icons";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-const Import3D = ({ setFile }) => {
+const Import3D = ({ setFile, scale, setScale, okFile, setOkFile }) => {
   const [modelUrl, setModelUrl] = useState(null);
 
   const handleUpload = (file) => {
@@ -14,7 +14,6 @@ const Import3D = ({ setFile }) => {
     const url = URL.createObjectURL(file);
     console.log("Uploaded 3D model:", url);
     setModelUrl(url); // Save the URL to the state
-    console.log("Uploaded 3D model:", url);
     return false; // Prevent automatic upload
   };
 
@@ -41,11 +40,22 @@ const Import3D = ({ setFile }) => {
         </Upload>
       </Form.Item>
 
+      <Form.Item label="Scale">
+        <InputNumber
+          min={0.1}
+          max={10}
+          step={0.1}
+          value={scale}
+          onChange={(value) => setScale(value)}
+          style={{ width: "100%" }}
+        />
+      </Form.Item>
+
       {modelUrl && (
-        <Canvas style={{ height: 400 }}>
+        <Canvas style={{ height: 350, width: 300 }}>
           <ambientLight intensity={0.5} />
-          <pointLight position={[0, 0, 0]} />
-          <ModelViewer modelUrl={modelUrl} />
+          <pointLight position={[10, 10, 10]} />
+          <ModelViewer modelUrl={modelUrl} scale={scale} />
           <OrbitControls />
         </Canvas>
       )}
@@ -53,10 +63,10 @@ const Import3D = ({ setFile }) => {
   );
 };
 
-// Component to load and display the 3D model
-const ModelViewer = ({ modelUrl }) => {
+// Component to load and display the 3D model with dynamic scale
+const ModelViewer = ({ modelUrl, scale }) => {
   const { scene } = useGLTF(modelUrl);
-  return <primitive object={scene} scale={1} />;
+  return <primitive object={scene} scale={[scale, scale, scale]} />;
 };
 
 export default Import3D;
