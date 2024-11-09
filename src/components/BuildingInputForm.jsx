@@ -21,10 +21,6 @@ const BuildingInputForm = () => {
       title: "Floor Heights",
       content: <FloorHeightInput />,
     },
-    {
-      title: "Floor Plans",
-      content: <FloorHeightInput />,
-    },
   ];
 
   // Move to the next step
