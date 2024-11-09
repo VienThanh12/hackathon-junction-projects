@@ -59,7 +59,7 @@ const MovableElevator = () => {
 
 const ThreeDModelViewer = () => {
   return (
-    <div style={{ height: "100vh", background: "#f0f0f0" }}>
+    <div style={{ height: "82vh", background: "#f0f0f0" }}>
       <Canvas
         camera={{
           position: [0, 0, 20],
@@ -67,7 +67,7 @@ const ThreeDModelViewer = () => {
       >
         <Environment preset="sunset" />
         <MovableElevator />
-        <OrbitControls/>
+        <OrbitControls />
         <Box position={[0, 0, 0]} />
         <ContactShadows opacity={0.7} />
       </Canvas>
