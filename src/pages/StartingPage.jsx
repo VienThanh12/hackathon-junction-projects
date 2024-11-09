@@ -67,7 +67,12 @@ const StartingPage = () => {
               style={{ display: "flex", alignItems: "center" }}
             >
               <span
-                style={{ fontSize: "18px", fontWeight: "bold", color: "#000", marginTop: -10 }}
+                style={{
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                  color: "#000",
+                  marginTop: -10,
+                }}
               >
                 KONE 3DNow
               </span>
@@ -80,7 +85,11 @@ const StartingPage = () => {
               md={8}
               style={{ textAlign: "center", alignContent: "bottom" }}
             >
-              <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40, marginTop: 10}} />
+              <img
+                src={Kone_Logo}
+                alt="KONE Logo"
+                style={{ height: 40, marginTop: 10 }}
+              />
             </Col>
 
             {/* Right Column with Menu */}
@@ -99,7 +108,11 @@ const StartingPage = () => {
                     href="https://www.kone.com/en/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
+                    style={{
+                      color: "#1550F6",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
                   >
                     Contact KONE
                     <RightOutlined style={{ marginLeft: "8px" }} />
@@ -108,7 +121,8 @@ const StartingPage = () => {
                 <Menu.Item key="language">
                   <a href="/english" style={{ color: "#1550F6" }}>
                     ENGLISH
-                    <DownOutlined style={{ marginLeft: "8px" }} /> {/* Down arrow for ENGLISH */}
+                    <DownOutlined style={{ marginLeft: "8px" }} />{" "}
+                    {/* Down arrow for ENGLISH */}
                   </a>
                 </Menu.Item>
               </Menu>
