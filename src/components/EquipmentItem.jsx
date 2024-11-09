@@ -2,20 +2,44 @@ import React from "react";
 import { List, Button } from "antd";
 
 const EquipmentItem = ({ equipment }) => {
+  const [isPreviewing, setIsPreviewing] = React.useState(false);
   const handleAddEquipment = () => {
     // Logic to add equipment to the 3D model
     console.log(`Adding ${equipment.name} to the scene.`);
+
   };
+  console.log(equipment.imageUrl);
 
   return (
     <List.Item
       actions={[
-        <Button type="primary" onClick={handleAddEquipment}>
-          Add to Scene
-        </Button>,
+        <Button
+          type="primary"
+          onClick={() => setIsPreviewing(!isPreviewing)}
+        >
+          {isPreviewing ? "Hide Preview" : "Show Preview"}
+        </Button>
       ]}
     >
-      <List.Item.Meta title={equipment.name} />
+      {!isPreviewing && <List.Item.Meta title={equipment.name} />}
+      {isPreviewing && (
+        <div
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "#f0f0f0",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <img
+            src={equipment.imageUrl}
+            alt={equipment.name}
+            style={{ maxWidth: "100%", maxHeight: "100%" }}
+          />
+        </div>
+      )}
     </List.Item>
   );
 };

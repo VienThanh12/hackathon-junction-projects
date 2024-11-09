@@ -1,16 +1,75 @@
-import React from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls } from "@react-three/drei";
-import Box from "./Box"; // Import your 3D component (e.g., Box)
+import React, { useRef, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { ContactShadows, OrbitControls, Environment } from "@react-three/drei";
+import { Model as Elevator } from "./Elevator";
+import Box from "./Box";
+
+const MovableElevator = () => {
+  const elevatorRef = useRef();
+
+  // Define movement speed
+  const moveSpeed = 1;
+
+  // Listen for key presses to control movement
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (!elevatorRef.current) return;
+
+      switch (event.key) {
+        case "ArrowUp":
+        case "w":
+          elevatorRef.current.position.y += moveSpeed;
+          break;
+        case "ArrowDown":
+        case "s":
+          elevatorRef.current.position.y -= moveSpeed;
+          break;
+        case "ArrowLeft":
+        case "a":
+          elevatorRef.current.position.x -= moveSpeed;
+          break;
+        case "ArrowRight":
+        case "d":
+          elevatorRef.current.position.x += moveSpeed;
+          break;
+        case "q": // Move up
+          elevatorRef.current.position.z += moveSpeed;
+          break;
+        case "e": // Move down
+          elevatorRef.current.position.z -= moveSpeed;
+          break;
+        default:
+          break;
+      }
+    };
+
+    // Add event listener for keydown
+    window.addEventListener("keydown", handleKeyDown);
+
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  return (
+    <mesh ref={elevatorRef}>
+      <Elevator />
+    </mesh>
+  );
+};
 
 const ThreeDModelViewer = () => {
   return (
-    <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas>
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 20, 15]} intensity={1} />
-        <OrbitControls />
-        <Box />
+    <div style={{ height: "100vh", background: "#f0f0f0" }}>
+      <Canvas
+        camera={{
+          position: [0, 0, 20],
+        }}
+      >
+        <Environment preset="sunset" />
+        <MovableElevator />
+        <OrbitControls/>
+        <Box position={[0, 0, 0]} />
+        <ContactShadows opacity={0.7} />
       </Canvas>
     </div>
   );
