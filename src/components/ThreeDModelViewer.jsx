@@ -163,8 +163,8 @@ const ThreeDModelViewer = ({
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-    } else setModel(false);
-  }, [file, model]);
+    }
+  }, [file, setFile]);
 
   const ModelViewer = ({ model }) => {
     const { scene } = useGLTF(model);
