@@ -50,7 +50,6 @@ const StartingPage = () => {
 
   return (
     <Layout style={{ height: "97.3vh", overflow: "hidden" }}>
-      {/* Header Section */}
       <animated.div style={fadeIn}>
         <Header
           style={{
@@ -59,7 +58,6 @@ const StartingPage = () => {
           }}
         >
           <Row justify="space-between" align="middle" style={{ width: "100%" }}>
-            {/* Left Column with Title */}
             <Col
               xs={8}
               sm={8}
@@ -73,51 +71,69 @@ const StartingPage = () => {
               </span>
             </Col>
 
-            {/* Center Column with Logo */}
             <Col
-              xs={8}
-              sm={8}
-              md={8}
-              style={{ textAlign: "center", alignContent: "bottom" }}
-            >
-              <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40, marginTop: 10}} />
-            </Col>
+  xs={8}
+  sm={8}
+  md={8}
+  style={{
+    display: "flex",      
+    justifyContent: "center", 
+    alignItems: "center",    
+    textAlign: "center",     
+    minHeight: "60px",       
+  }}
+>
+  <img
+    src={Kone_Logo}
+    alt="KONE Logo"
+    style={{
+      maxHeight: "40px",      
+      maxWidth: "100%",      
+      objectFit: "contain",  
+    }}
+  />
+</Col>
 
-            {/* Right Column with Menu */}
-            <Col xs={8} sm={8} md={8} style={{ textAlign: "right" }}>
-              <Menu
-                mode="horizontal"
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Menu.Item key="contact">
-                  {/* Opens in a new window */}
-                  <a
-                    href="https://www.kone.com/en/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
-                  >
-                    Contact KONE
-                    <RightOutlined style={{ marginLeft: "8px" }} />
-                  </a>
-                </Menu.Item>
-                <Menu.Item key="language">
-                  <a href="/english" style={{ color: "#1550F6" }}>
-                    ENGLISH
-                    <DownOutlined style={{ marginLeft: "8px" }} /> {/* Down arrow for ENGLISH */}
-                  </a>
-                </Menu.Item>
-              </Menu>
-            </Col>
+
+
+<Col xs={8} sm={8} md={8} style={{ textAlign: "right", marginTop: -10 }}>
+  <Menu
+    mode="horizontal"
+    style={{
+      backgroundColor: "transparent",
+      border: "none",
+      justifyContent: "flex-end",
+    }}
+  >
+    <Menu.Item key="contact">
+      <a
+        href="https://www.kone.com/en/"
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          color: "#1550F6",
+          marginTop: "-10px",
+          alignItems: "center",
+          
+        }}
+      >
+        Contact KONE
+        <RightOutlined style={{ marginLeft: "8px", }} />
+      </a>
+    </Menu.Item>
+    <Menu.Item key="language"> 
+      <a href="/english" style={{ color: "#1550F6" }}>
+        ENGLISH
+        <DownOutlined style={{ marginLeft: "8px" }} />
+      </a>
+    </Menu.Item>
+  </Menu>
+</Col>
+
           </Row>
         </Header>
       </animated.div>
 
-      {/* Hero Section */}
       <Content
         className="hero-section"
         style={{
@@ -179,7 +195,6 @@ const StartingPage = () => {
         </animated.div>
       </Content>
 
-      {/* Footer Section */}
       <animated.div style={fadeIn}>
         <Footer
           style={{
@@ -191,7 +206,6 @@ const StartingPage = () => {
           }}
         >
           <div>Follow us on social media</div>
-          {/* KONE Website Link with Icon */}
           <div className="social-icons" style={{ marginTop: "10px" }}>
             <a
               href="https://www.kone.com/en/"
