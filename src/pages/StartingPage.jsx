@@ -51,72 +51,80 @@ const StartingPage = () => {
   return (
     <Layout style={{ height: "97.3vh", overflow: "hidden" }}>
       <animated.div style={fadeIn}>
-        <Header
-          style={{
-            backgroundColor: "#ffffff",
-            padding: "0 20px",
-          }}
-        >
-          <Row justify="space-between" align="middle" style={{ width: "100%" }}>
-            <Col
-              xs={8}
-              sm={8}
-              md={8}
-              style={{ display: "flex", alignItems: "center" }}
-            >
-              <span
-                style={{
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                  color: "#000",
-                  marginTop: -10,
-                }}
-              >
-                KONE 3DNow
-              </span>
-            </Col>
+      <Header
+  style={{
+    backgroundColor: "#ffffff",
+    padding: "0 20px",
+    display: "flex",
+    alignItems: "center",
+  }}
+>
+  <Row justify="space-between" align="middle" style={{ width: "100%" }}>
+    <Col
+      xs={8}
+      sm={8}
+      md={8}
+      style={{ display: "flex", alignItems: "center" }}
+    >
+      <span
+        style={{
+          fontSize: "18px",
+          fontWeight: "bold",
+          color: "#000",
+          marginTop: -10,
+        }}
+      >
+        KONE 3DNow
+      </span>
+    </Col>
 
-            <Col
-              xs={8}
-              sm={8}
-              md={8}
-              style={{ textAlign: "center", alignContent: "bottom" }}
-            >
-              <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40, marginTop: 10}} />
-            </Col>
+    {/* Center the logo */}
+    <Col
+      xs={8}
+      sm={8}
+      md={8}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40 }} />
+    </Col>
 
-            {/* Right Column with Menu */}
-            <Col xs={8} sm={8} md={8} style={{ textAlign: "right" }}>
-              <Menu
-                mode="horizontal"
-                style={{
-                  backgroundColor: "transparent",
-                  border: "none",
-                  justifyContent: "flex-end",
-                }}
-              >
-                <Menu.Item key="contact">
-                  {/* Opens in a new window */}
-                  <a
-                    href="https://www.kone.com/en/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
-                  >
-                    Contact KONE
-                    <RightOutlined style={{ marginLeft: "8px" }} />
-                  </a>
-                </Menu.Item>
-                <Menu.Item key="language">
-                  <a href="/english" style={{ color: "#1550F6" }}>
-                    ENGLISH
-                    <DownOutlined style={{ marginLeft: "8px" }} /> {/* Down arrow for ENGLISH */}
-                  </a>
-                </Menu.Item>
-              </Menu>
-            </Col>
-          </Row>
-        </Header>
+    {/* Right Column with Menu */}
+    <Col xs={8} sm={8} md={8} style={{ textAlign: "right" }}>
+      <Menu
+        mode="horizontal"
+        style={{
+          backgroundColor: "transparent",
+          border: "none",
+          justifyContent: "flex-end",
+        }}
+      >
+        <Menu.Item key="contact">
+          <a
+            href="https://www.kone.com/en/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
+          >
+            Contact KONE
+            <RightOutlined style={{ marginLeft: "8px" }} />
+          </a>
+        </Menu.Item>
+        <Menu.Item key="language">
+          <a href="/english" style={{ color: "#1550F6" }}>
+            ENGLISH
+            <DownOutlined style={{ marginLeft: "8px" }} />
+          </a>
+        </Menu.Item>
+      </Menu>
+    </Col>
+  </Row>
+</Header>
+
+
       </animated.div>
 
       <Content
