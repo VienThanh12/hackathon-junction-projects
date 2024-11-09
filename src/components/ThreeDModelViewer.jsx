@@ -12,8 +12,9 @@ import { Model as Wall1 } from "./Wall1";
 import { Model as Wall2 } from "./Wall2";
 import { useLoader } from "@react-three/fiber";
 import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
-import PopUpButton from "./PopUpButton"; 
+import PopUpButton from "./PopUpButton";
 
+import InlinePopup from "./InlinePopup";
 function Model() {
   // Load the .ply file
   const geometry = useLoader(PLYLoader, "/models/final-lego2-mesh.ply");
@@ -122,30 +123,6 @@ const MovableElevator = () => {
     <mesh ref={elevatorRef}>
       <Elevator />
     </mesh>
-  );
-};
-
-// Inline pop-up component
-const InlinePopup = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
-
-  return (
-    <div style={styles.popup}>
-      <h2>How to move the 3D objects</h2>
-      <p>
-        w - sdfwefwef
-        <br />
-        a -<br />
-        s - <br />
-        d -<br />
-        q -<br />
-        f -<br />
-        g -<br />
-      </p>
-      <button onClick={onClose} style={styles.closeButton}>
-        Close
-      </button>
-    </div>
   );
 };
 
@@ -266,13 +243,11 @@ const ThreeDModelViewer = ({
         <Model />
 
         <ContactShadows opacity={0.7} />
-        
+
         <Wall1 />
         <Wall2 />
 
-
         {model && okFile && <MovableObject />}
-
       </Canvas>
 
       <div style={styles.buttonContainer}>
