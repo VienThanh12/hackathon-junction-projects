@@ -8,9 +8,11 @@ import {
   useGLTF,
 } from "@react-three/drei";
 import { Model as Elevator } from "./Elevator";
+import { Model as Wall1 } from "./Wall1";
+import { Model as Wall2 } from "./Wall2";
 import { useLoader } from "@react-three/fiber";
 import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
-import PopUpButton from "./PopUpButton"; // Import PopUpButton
+import PopUpButton from "./PopUpButton"; 
 
 function Model() {
 
@@ -202,7 +204,9 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
         <OrbitControls />
         <Model />
         <ContactShadows opacity={0.7} />
-
+        
+        <Wall1 />
+        <Wall2 />
       </Canvas>
 
       <div style={styles.buttonContainer}>
