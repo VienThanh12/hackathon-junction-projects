@@ -4,12 +4,11 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-const Import3D = ({ setFile}) => {
+const Import3D = ({ setFile }) => {
   const [modelUrl, setModelUrl] = useState(null);
 
-
   const handleUpload = (file) => {
-    console.log(file)
+    console.log(file);
     // Convert the uploaded file to a URL
     setFile(file);
     const url = URL.createObjectURL(file);
@@ -24,7 +23,7 @@ const Import3D = ({ setFile}) => {
   };
 
   return (
-    <>
+    <div style={{ height: "350px" }}>
       <Form.Item
         name="floorPlans"
         label="Upload 3D Object (GLB)"
@@ -37,7 +36,6 @@ const Import3D = ({ setFile}) => {
           accept=".glb"
           beforeUpload={(file) => handleUpload(file)}
           listType="picture"
-
         >
           <Button icon={<UploadOutlined />}>Select 3D file</Button>
         </Upload>
@@ -46,12 +44,12 @@ const Import3D = ({ setFile}) => {
       {modelUrl && (
         <Canvas style={{ height: 400 }}>
           <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
+          <pointLight position={[0, 0, 0]} />
           <ModelViewer modelUrl={modelUrl} />
           <OrbitControls />
         </Canvas>
       )}
-    </>
+    </div>
   );
 };
 

@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "antd";
 
-function ToggleButton({ openElevator, setOpenElevator }) {
-  const handleToggle = (openElevator) => {
-    setOpenElevator(openElevator);
-    console.log(`Toggle is now ${openElevator ? "ON" : "OFF"}`);
+function ToggleButton({ checked, setChecked }) {
+  console.log(checked);
+  const handleToggle = (e) => {
+    setChecked(!checked); // No need to negate checked, just pass it directly
+    console.log(`Toggle is now ${checked ? "ON" : "OFF"}`);
   };
 
-  return <Switch checked={openElevator} onChange={handleToggle} />;
+  return <Switch checked={checked} onChange={handleToggle} />;
 }
 
 export default ToggleButton;
