@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch } from "antd";
 
 function ToggleButton({ checked, setChecked }) {
-  const handleToggle = (checked) => {
-    setChecked(!checked);
+  console.log(checked);
+  const handleToggle = (e) => {
+    setChecked(!checked); // No need to negate checked, just pass it directly
     console.log(`Toggle is now ${checked ? "ON" : "OFF"}`);
   };
 

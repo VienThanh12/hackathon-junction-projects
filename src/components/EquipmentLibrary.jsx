@@ -4,9 +4,6 @@ import EquipmentItem from "./EquipmentItem";
 
 const equipmentList = [
   { name: "Elevator Model A", imageUrl: "/src/assets/Equipment/evelator1.png" },
-  { name: "Escalator Model B", imageUrl: "/models/escalatorB.glb" },
-  { name: "Escalator Model B", imageUrl: "/models/escalatorB.glb" },
-  { name: "Escalator Model B", imageUrl: "/models/escalatorB.glb" },
   // Add more items as needed
 ];
 
@@ -28,6 +25,8 @@ const EquipmentLibrary = ({ openElevator, setOpenElevator, file, setFile }) => {
               equipment={item}
               openElevator={openElevator}
               setOpenElevator={setOpenElevator}
+              file={file}
+              setFile={setFile}
             />
           )}
         />

@@ -23,7 +23,7 @@ const Import3D = ({ setFile }) => {
   };
 
   return (
-    <>
+    <div style={{ height: "350px" }}>
       <Form.Item
         name="floorPlans"
         label="Upload 3D Object (GLB)"
@@ -44,12 +44,12 @@ const Import3D = ({ setFile }) => {
       {modelUrl && (
         <Canvas style={{ height: 400 }}>
           <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} />
+          <pointLight position={[0, 0, 0]} />
           <ModelViewer modelUrl={modelUrl} />
           <OrbitControls />
         </Canvas>
       )}
-    </>
+    </div>
   );
 };
 

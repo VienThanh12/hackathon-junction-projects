@@ -1,6 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, OrbitControls, Environment, useGLTF } from "@react-three/drei";
+import {
+  ContactShadows,
+  OrbitControls,
+  Environment,
+  useGLTF,
+} from "@react-three/drei";
 import { Model as Elevator } from "./Elevator";
 import Box from "./Box";
 import { useLoader } from "@react-three/fiber";
@@ -11,10 +16,11 @@ function Model() {
   const geometry = useLoader(PLYLoader, "/models/Axle shaft.ply");
 
   return (
-    <mesh geometry={geometry}       
-      scale={[0.05, 0.05, 0.05]}   
-      position={[0, 0, 0]} 
-      rotation={[0, Math.PI / 2, 0]}  // Rotate by 90 degrees on y-axis
+    <mesh
+      geometry={geometry}
+      scale={[0.05, 0.05, 0.05]}
+      position={[0, 0, 0]}
+      rotation={[0, Math.PI / 2, 0]} // Rotate by 90 degrees on y-axis
     >
       <meshStandardMaterial color="gray" />
     </mesh>
@@ -74,7 +80,12 @@ const MovableElevator = () => {
   );
 };
 
-const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => {
+const ThreeDModelViewer = ({
+  openElevator,
+  setOpenElevator,
+  file,
+  setFile,
+}) => {
   const [model, setModel] = useState(null);
 
   // Use effect to handle file state update
@@ -82,7 +93,6 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-      setFile(null);
     }
   }, [file, setFile]);
 
@@ -101,7 +111,7 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
             setOpenElevator={setOpenElevator}
           />
         )}
-       
+
         <OrbitControls />
         <Model />
         {model && <ModelViewer model={model} />}
