@@ -15,6 +15,9 @@ const ModelingPage = () => {
   const [openElevator, setOpenElevator] = useState(false);
 
   const [file, setFile] = useState(null);
+  const [okFile, setOkFile] = useState(false);
+  const [scale, setScale] = useState(1);
+
   return (
     <Layout
       style={{
@@ -67,6 +70,10 @@ const ModelingPage = () => {
               setOpenElevator={setOpenElevator}
               file={file}
               setFile={setFile}
+              scale={scale}
+              setScale={setScale}
+              okFile={okFile}
+              setOkFile={setOkFile}
             />
           </Col>
           <Col span={6}>
@@ -75,8 +82,17 @@ const ModelingPage = () => {
               setOpenElevator={setOpenElevator}
               file={file}
               setFile={setFile}
+              okFile={okFile}
+              setOkFile={setOkFile}
             />
-            <ImportModelButton file={file} setFile={setFile} />
+            <ImportModelButton
+              file={file}
+              setFile={setFile}
+              scale={scale}
+              setScale={setScale}
+              okFile={okFile}
+              setOkFile={setOkFile}
+            />
             <ExportModelButton />
           </Col>
         </Row>

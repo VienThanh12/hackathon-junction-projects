@@ -7,7 +7,14 @@ const equipmentList = [
   // Add more items as needed
 ];
 
-const EquipmentLibrary = ({ openElevator, setOpenElevator, file, setFile }) => {
+const EquipmentLibrary = ({
+  openElevator,
+  setOpenElevator,
+  file,
+  setFile,
+  okFile,
+  setOkFile,
+}) => {
   return (
     <Card title="Equipment Library" style={{ marginBottom: "20px" }}>
       <div

@@ -97,6 +97,7 @@ const MovableElevator = () => {
             elevatorRef.current.scale.z = Math.max(0.1, elevatorRef.current.scale.z - scaleSpeed);
             break;
 
+
         default:
             break;
     }    
@@ -112,7 +113,16 @@ const MovableElevator = () => {
       <Elevator />
     </mesh>
   );
-};
+
+const ThreeDModelViewer = ({
+  openElevator,
+  setOpenElevator,
+  file,
+  setFile,
+  scale,
+  setScale,
+  okFile,
+}) => {
 
 // Inline pop-up component
 const InlinePopup = ({ isOpen, onClose }) => {
@@ -138,6 +148,7 @@ const InlinePopup = ({ isOpen, onClose }) => {
 };
 
 const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => {
+
   const [model, setModel] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const canvasRef = useRef();
@@ -146,26 +157,67 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-    }
-  }, [file, setFile]);
+    } else setModel(false);
+  }, [file, model]);
 
   const ModelViewer = ({ model }) => {
     const { scene } = useGLTF(model);
-    return <primitive object={scene} scale={1} />;
+    return <primitive object={scene} scale={scale} />;
   };
 
-  const exportModelAsPng = () => {
-    const canvas = canvasRef.current?.gl.domElement;
-    if (canvas) {
-      canvas.toBlob((blob) => {
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "3DModelView.png";
-        link.click();
-        URL.revokeObjectURL(link.href);
-      }, "image/png");
-    }
-  };
+
+  const MovableObject = () => {
+    const object = useRef();
+
+    // Define movement speed
+    const moveSpeed = 1;
+
+    // Listen for key presses to control movement
+    useEffect(() => {
+      const handleKeyDown = (event) => {
+        if (!object.current) return;
+
+        switch (event.key) {
+          case "ArrowUp":
+          case "w":
+          case "W":
+            object.current.position.y += moveSpeed;
+            break;
+          case "ArrowDown":
+          case "s":
+          case "S":
+            object.current.position.y -= moveSpeed;
+            break;
+          case "ArrowLeft":
+          case "a":
+          case "A":
+            object.current.position.x -= moveSpeed;
+            break;
+          case "ArrowRight":
+          case "d":
+          case "D":
+            object.current.position.x += moveSpeed;
+            break;
+          case "q": // Move up
+          case "Q":
+            object.current.position.z += moveSpeed;
+            break;
+          case "e": // Move down
+          case "E":
+            object.current.position.z -= moveSpeed;
+            break;
+          default:
+            break;
+        }
+      };
+
+      // Add event listener for keydown
+      window.addEventListener("keydown", handleKeyDown);
+
+      // Clean up event listener on component unmount
+      return () => window.removeEventListener("keydown", handleKeyDown);
+    }, []);
+
 
   const handlePopUpClick = () => {
     setIsPopupOpen(!isPopupOpen);
@@ -201,6 +253,8 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => 
 
         <OrbitControls />
         <Model />
+
+        {model && okFile && <MovableObject />}
         <ContactShadows opacity={0.7} />
 
       </Canvas>
