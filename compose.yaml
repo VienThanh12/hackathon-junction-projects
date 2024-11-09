@@ -1,9 +1,15 @@
-version: "3"
+version: "3.8"
 
 services:
-  frontend:
+  app:
     build:
       context: .
-      dockerfile: dockerfile
+      dockerfile: Dockerfile
     ports:
-      - "5173:5173"
+      - "5173:5173"  # Map port 5173 on the host to 5173 in the container
+    volumes:
+      - .:/app       # Sync the current directory with /app in the container
+      - /app/node_modules  # Prevents conflicts with local node_modules
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev"]  # Start the development server
