@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
-const Box = () => {
+const Box = (props) => {
   const ref = useRef();
 
   // This hook rotates the box continuously
@@ -13,7 +13,7 @@ const Box = () => {
 
   return (
     <mesh ref={ref}>
-      <boxGeometry args={[1, 1, 1]} />
+      <boxGeometry args={[2, 2, 2]} />
       <meshStandardMaterial color="orange" />
     </mesh>
   );

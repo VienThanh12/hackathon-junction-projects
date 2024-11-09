@@ -3,8 +3,8 @@ import { Card, List } from "antd";
 import EquipmentItem from "./EquipmentItem";
 
 const equipmentList = [
-  { name: "Elevator Model A", modelUrl: "/models/elevatorA.glb" },
-  { name: "Escalator Model B", modelUrl: "/models/escalatorB.glb" },
+  { name: "Elevator Model A", imageUrl: "/src/assets/Equipment/evelator1.png" },
+  { name: "Escalator Model B", imageUrl: "/models/escalatorB.glb" },
   // Add more equipment as needed
 ];
 
