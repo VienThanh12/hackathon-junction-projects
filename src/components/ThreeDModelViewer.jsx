@@ -1,9 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { ContactShadows, OrbitControls, Environment } from "@react-three/drei";
+import { ContactShadows, OrbitControls, Environment, useGLTF } from "@react-three/drei";
 import { Model as Elevator } from "./Elevator";
 import Box from "./Box";
-
 import { useLoader } from "@react-three/fiber";
 import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
 
@@ -13,9 +12,9 @@ function Model() {
 
   return (
     <mesh geometry={geometry}       
-    scale={[0.05, 0.05, 0.05]}   
-    position={[0, 0, 0]} 
-    rotate={[0, 90, 0]}
+      scale={[0.05, 0.05, 0.05]}   
+      position={[0, 0, 0]} 
+      rotation={[0, Math.PI / 2, 0]}  // Rotate by 90 degrees on y-axis
     >
       <meshStandardMaterial color="gray" />
     </mesh>
@@ -70,16 +69,31 @@ const MovableElevator = () => {
 
   return (
     <mesh ref={elevatorRef}>
-      <Elevator />;
+      <Elevator />
     </mesh>
   );
 };
 
-const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
-  console.log(openElevator);
+const ThreeDModelViewer = ({ openElevator, setOpenElevator, file, setFile }) => {
+  const [model, setModel] = useState(null);
+
+  // Use effect to handle file state update
+  useEffect(() => {
+    if (file) {
+      const url = URL.createObjectURL(file);
+      setModel(url);
+      setFile(null);
+    }
+  }, [file, setFile]);
+
+  const ModelViewer = ({ model }) => {
+    const { scene } = useGLTF(model);
+    return <primitive object={scene} scale={1} />;
+  };
+
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas camera={{ position: [0, 0, 30], fov: 50 }}>
+      <Canvas camera={{ position: [0, 0, 40], fov: 50 }}>
         <Environment preset="sunset" />
         {openElevator && (
           <MovableElevator
@@ -90,7 +104,7 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
        
         <OrbitControls />
         <Model />
-
+        {model && <ModelViewer model={model} />}
         <ContactShadows opacity={0.7} />
       </Canvas>
     </div>
