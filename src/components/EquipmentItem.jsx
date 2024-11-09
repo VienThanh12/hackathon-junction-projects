@@ -1,24 +1,27 @@
 import React from "react";
 import { List, Button } from "antd";
 
-const EquipmentItem = ({ equipment }) => {
+import ToggleButton from "../utils/ToggleButton";
+
+const EquipmentItem = ({ openElevator, setOpenElevator, equipment }) => {
   const [isPreviewing, setIsPreviewing] = React.useState(false);
   const handleAddEquipment = () => {
     // Logic to add equipment to the 3D model
     console.log(`Adding ${equipment.name} to the scene.`);
-
   };
-  console.log(equipment.imageUrl);
 
   return (
     <List.Item
       actions={[
-        <Button
-          type="primary"
-          onClick={() => setIsPreviewing(!isPreviewing)}
-        >
+        <Button type="primary" onClick={() => setIsPreviewing(!isPreviewing)}>
           {isPreviewing ? "Hide Preview" : "Show Preview"}
-        </Button>
+        </Button>,
+        equipment.name === "Elevator Model A" && (
+          <ToggleButton
+            openElevator={openElevator}
+            setOpenElevator={setOpenElevator}
+          />
+        ),
       ]}
     >
       {!isPreviewing && <List.Item.Meta title={equipment.name} />}
@@ -27,7 +30,6 @@ const EquipmentItem = ({ equipment }) => {
           style={{
             width: "100px",
             height: "100px",
-            background: "#f0f0f0",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { ContactShadows, OrbitControls, Environment } from "@react-three/drei";
 import { Model as Elevator } from "./Elevator";
@@ -52,23 +52,29 @@ const MovableElevator = () => {
 
   return (
     <mesh ref={elevatorRef}>
-      <Elevator />
+      <Elevator />;
     </mesh>
   );
 };
 
-const ThreeDModelViewer = () => {
+const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
+  console.log(openElevator);
   return (
-    <div style={{ height: "82vh", background: "#f0f0f0" }}>
+    <div style={{ height: "80vh", background: "#f0f0f0" }}>
       <Canvas
         camera={{
           position: [0, 0, 20],
         }}
       >
         <Environment preset="sunset" />
-        <MovableElevator />
+        {openElevator && (
+          <MovableElevator
+            openElevator={openElevator}
+            setOpenElevator={setOpenElevator}
+          />
+        )}
         <OrbitControls />
-        <Box position={[0, 0, 0]} />
+
         <ContactShadows opacity={0.7} />
       </Canvas>
     </div>

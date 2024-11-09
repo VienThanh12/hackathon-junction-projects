@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Layout, Row, Col, Button } from "antd";
 import { HomeOutlined } from "@ant-design/icons";
 import ThreeDModelViewer from "../components/ThreeDModelViewer";
@@ -10,6 +10,8 @@ const { Header, Content } = Layout;
 
 const ModelingPage = () => {
   const navigate = useNavigate();
+
+  const [openElevator, setOpenElevator] = useState(false);
 
   return (
     <Layout
@@ -58,10 +60,16 @@ const ModelingPage = () => {
       <Content style={{ padding: "20px" }}>
         <Row gutter={16}>
           <Col span={18}>
-            <ThreeDModelViewer />
+            <ThreeDModelViewer
+              openElevator={openElevator}
+              setOpenElevator={setOpenElevator}
+            />
           </Col>
           <Col span={6}>
-            <EquipmentLibrary />
+            <EquipmentLibrary
+              openElevator={openElevator}
+              setOpenElevator={setOpenElevator}
+            />
             <ExportModelButton />
           </Col>
         </Row>
