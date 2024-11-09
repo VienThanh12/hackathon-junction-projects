@@ -4,12 +4,11 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
-const Import3D = ({ setFile}) => {
+const Import3D = ({ setFile }) => {
   const [modelUrl, setModelUrl] = useState(null);
 
-
   const handleUpload = (file) => {
-    console.log(file)
+    console.log(file);
     // Convert the uploaded file to a URL
     setFile(file);
     const url = URL.createObjectURL(file);
@@ -37,7 +36,6 @@ const Import3D = ({ setFile}) => {
           accept=".glb"
           beforeUpload={(file) => handleUpload(file)}
           listType="picture"
-
         >
           <Button icon={<UploadOutlined />}>Select 3D file</Button>
         </Upload>

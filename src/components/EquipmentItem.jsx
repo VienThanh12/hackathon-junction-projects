@@ -10,18 +10,17 @@ const EquipmentItem = ({ openElevator, setOpenElevator, equipment }) => {
     console.log(`Adding ${equipment.name} to the scene.`);
   };
 
+  console.log(openElevator);
   return (
     <List.Item
       actions={[
-        <Button type="primary" onClick={() => setIsPreviewing(!isPreviewing)}>
-          {isPreviewing ? "Hide Preview" : "Show Preview"}
-        </Button>,
-     (
-          <ToggleButton
-            openElevator={openElevator}
-            setOpenElevator={setOpenElevator}
-          />
-        ),
+        // <Button type="primary" onClick={() => setIsPreviewing(!isPreviewing)}>
+        //   {isPreviewing ? "Hide Preview" : "Show Preview"}
+        // </Button>,
+        <ToggleButton
+          openElevator={openElevator}
+          setOpenElevator={setOpenElevator}
+        />,
       ]}
     >
       {!isPreviewing && <List.Item.Meta title={equipment.name} />}

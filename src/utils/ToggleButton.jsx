@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { Switch } from "antd";
 
-function ToggleButton({ openElevator, setOpenElevator }) {
-  const handleToggle = (openElevator) => {
-    setOpenElevator(openElevator);
-    console.log(`Toggle is now ${openElevator ? "ON" : "OFF"}`);
+function ToggleButton({ checked, setChecked }) {
+  const handleToggle = (checked) => {
+    setChecked(!checked);
+    console.log(`Toggle is now ${checked ? "ON" : "OFF"}`);
   };
 
-  return <Switch checked={openElevator} onChange={handleToggle} />;
+  return <Switch checked={checked} onChange={handleToggle} />;
 }
 
 export default ToggleButton;
