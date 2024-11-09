@@ -7,7 +7,8 @@ const equipmentList = [
   { name: "Escalator Model B", imageUrl: "/models/escalatorB.glb" },
 ];
 
-const EquipmentLibrary = ({ openElevator, setOpenElevator }) => {
+const EquipmentLibrary = ({ openElevator, setOpenElevator, file, setFile }) => {
+  
   return (
     <Card title="Equipment Library" style={{ marginBottom: "20px" }}>
       <List
@@ -15,14 +16,17 @@ const EquipmentLibrary = ({ openElevator, setOpenElevator }) => {
         dataSource={equipmentList}
         renderItem={(item) => (
           <EquipmentItem
+          
             equipment={item}
             openElevator={openElevator}
             setOpenElevator={setOpenElevator}
+
           />
         )}
       />
     </Card>
   );
+ 
 };
 
 export default EquipmentLibrary;

@@ -4,6 +4,7 @@ import { HomeOutlined } from "@ant-design/icons";
 import ThreeDModelViewer from "../components/ThreeDModelViewer";
 import EquipmentLibrary from "../components/EquipmentLibrary";
 import ExportModelButton from "../components/ExportModelButton";
+import ImportModelButton from "../components/Import/ImportModelButton";
 import { useNavigate } from "react-router-dom";
 
 const { Header, Content } = Layout;
@@ -13,6 +14,7 @@ const ModelingPage = () => {
 
   const [openElevator, setOpenElevator] = useState(false);
 
+  const [file, setFile] = useState(null);
   return (
     <Layout
       style={{
@@ -63,13 +65,18 @@ const ModelingPage = () => {
             <ThreeDModelViewer
               openElevator={openElevator}
               setOpenElevator={setOpenElevator}
+              file={file}
+              setFile={setFile}
             />
           </Col>
           <Col span={6}>
             <EquipmentLibrary
               openElevator={openElevator}
               setOpenElevator={setOpenElevator}
+              file={file}
+              setFile={setFile}
             />
+            <ImportModelButton file={file} setFile={setFile} />
             <ExportModelButton />
           </Col>
         </Row>

@@ -16,7 +16,7 @@ const EquipmentItem = ({ openElevator, setOpenElevator, equipment }) => {
         <Button type="primary" onClick={() => setIsPreviewing(!isPreviewing)}>
           {isPreviewing ? "Hide Preview" : "Show Preview"}
         </Button>,
-        equipment.name === "Elevator Model A" && (
+     (
           <ToggleButton
             openElevator={openElevator}
             setOpenElevator={setOpenElevator}
