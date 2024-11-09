@@ -78,7 +78,6 @@ const StartingPage = () => {
       </span>
     </Col>
 
-    {/* Center the logo */}
     <Col
       xs={8}
       sm={8}
@@ -92,7 +91,6 @@ const StartingPage = () => {
       <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40 }} />
     </Col>
 
-    {/* Right Column with Menu */}
     <Col xs={8} sm={8} md={8} style={{ textAlign: "right" }}>
       <Menu
         mode="horizontal"
