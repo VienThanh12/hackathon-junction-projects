@@ -163,7 +163,7 @@ const ThreeDModelViewer = ({
     if (file) {
       const url = URL.createObjectURL(file);
       setModel(url);
-    }
+    } else setModel(null);
   }, [file, setFile]);
 
   const ModelViewer = ({ model }) => {
