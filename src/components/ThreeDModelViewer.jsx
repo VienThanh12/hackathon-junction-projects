@@ -12,7 +12,11 @@ function Model() {
   const geometry = useLoader(PLYLoader, "/models/Axle shaft.ply");
 
   return (
-    <mesh geometry={geometry}>
+    <mesh geometry={geometry}       
+    scale={[0.05, 0.05, 0.05]}   
+    position={[0, 0, 0]} 
+    rotate={[0, 90, 0]}
+    >
       <meshStandardMaterial color="gray" />
     </mesh>
   );
@@ -75,7 +79,7 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
   console.log(openElevator);
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
+      <Canvas camera={{ position: [0, 0, 30], fov: 50 }}>
         <Environment preset="sunset" />
         {openElevator && (
           <MovableElevator
