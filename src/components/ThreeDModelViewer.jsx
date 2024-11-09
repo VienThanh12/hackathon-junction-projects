@@ -87,10 +87,7 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
             setOpenElevator={setOpenElevator}
           />
         )}
-        <MovableElevator
-          openElevator={openElevator}
-          setOpenElevator={setOpenElevator}
-        />
+       
         <OrbitControls />
         <Model />
 
