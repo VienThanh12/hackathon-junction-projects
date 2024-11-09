@@ -30,8 +30,10 @@ const ImageUploader = () => {
     const texture = useLoader(TextureLoader, imageUrl); // Load the uploaded texture
     return (
       <mesh>
-        <planeGeometry args={[10, 10]} /> {/* Create a plane with width and height */}
-        <meshStandardMaterial map={texture} /> {/* Apply the texture to the plane */}
+        <planeGeometry args={[10, 10]} />{" "}
+        {/* Create a plane with width and height */}
+        <meshStandardMaterial map={texture} />{" "}
+        {/* Apply the texture to the plane */}
       </mesh>
     );
   };
