@@ -4,6 +4,20 @@ import { ContactShadows, OrbitControls, Environment } from "@react-three/drei";
 import { Model as Elevator } from "./Elevator";
 import Box from "./Box";
 
+import { useLoader } from "@react-three/fiber";
+import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
+
+function Model() {
+  // Load the .ply file
+  const geometry = useLoader(PLYLoader, "/models/Axle shaft.ply");
+
+  return (
+    <mesh geometry={geometry}>
+      <meshStandardMaterial color="gray" />
+    </mesh>
+  );
+}
+
 const MovableElevator = () => {
   const elevatorRef = useRef();
 
@@ -61,11 +75,7 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
   console.log(openElevator);
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas
-        camera={{
-          position: [0, 0, 20],
-        }}
-      >
+      <Canvas camera={{ position: [0, 0, 10], fov: 50 }}>
         <Environment preset="sunset" />
         {openElevator && (
           <MovableElevator
@@ -73,7 +83,12 @@ const ThreeDModelViewer = ({ openElevator, setOpenElevator }) => {
             setOpenElevator={setOpenElevator}
           />
         )}
+        <MovableElevator
+          openElevator={openElevator}
+          setOpenElevator={setOpenElevator}
+        />
         <OrbitControls />
+        <Model />
 
         <ContactShadows opacity={0.7} />
       </Canvas>
