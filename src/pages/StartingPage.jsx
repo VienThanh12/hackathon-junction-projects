@@ -67,7 +67,7 @@ const StartingPage = () => {
               style={{ display: "flex", alignItems: "center" }}
             >
               <span
-                style={{ fontSize: "18px", fontWeight: "bold", color: "#000" }}
+                style={{ fontSize: "18px", fontWeight: "bold", color: "#000", marginTop: -10 }}
               >
                 KONE 3DNow
               </span>
@@ -80,7 +80,7 @@ const StartingPage = () => {
               md={8}
               style={{ textAlign: "center", alignContent: "bottom" }}
             >
-              <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40 }} />
+              <img src={Kone_Logo} alt="KONE Logo" style={{ height: 40, marginTop: 10}} />
             </Col>
 
             {/* Right Column with Menu */}
@@ -102,7 +102,7 @@ const StartingPage = () => {
                     style={{ color: "#1550F6", display: "flex", alignItems: "center" }}
                   >
                     Contact KONE
-                    <RightOutlined style={{ marginLeft: "8px" }} /> {/* Right arrow for Contact KONE */}
+                    <RightOutlined style={{ marginLeft: "8px" }} />
                   </a>
                 </Menu.Item>
                 <Menu.Item key="language">
