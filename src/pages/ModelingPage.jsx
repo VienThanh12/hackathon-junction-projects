@@ -8,7 +8,12 @@ import ExportModelButton from "../components/ExportModelButton";
 const { Header, Content } = Layout;
 
 const ModelingPage = () => (
-  <Layout>
+  <Layout
+    style={{
+      height: "97.4vh",
+      background: "linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)",
+    }}
+  >
     <Header
       style={{
         backgroundColor: "#001529",
