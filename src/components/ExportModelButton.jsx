@@ -1,70 +1,42 @@
 import React, { useState } from "react";
-import { Button, Modal, Radio } from "antd";
+import { Button, Modal, Radio, message } from "antd";
 import { ExportOutlined } from "@ant-design/icons";
 import { GLTFExporter } from "three/examples/jsm/exporters/GLTFExporter";
 
-const ExportModelButton = ({ scene, camera, renderer }) => {
+const ExportModelButton = ({ scene }) => {
   const [exportType, setExportType] = useState("model");
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleExportModel = () => {
-    // const exporter = new GLTFExporter();
-    // exporter.parse(
-    //   scene,
-    //   (result) => {
-    //     const output = JSON.stringify(result);
-    //     const blob = new Blob([output], { type: "application/octet-stream" });
-    //     const link = document.createElement("a"); // Corrected element creation
-    //     link.href = URL.createObjectURL(blob);
-    //     link.download = "/models/elevator.gltf"; // Provide a valid filename with extension
-    //     link.click();
-    //     URL.revokeObjectURL(link.href); // Clean up the URL object after download
-    //   },
-    //   { binary: true }
-    // );
-    try {
-      // Create a new anchor element
-      const link = document.createElement("a");
-
-      // Set the href attribute to the image URL
-      link.href = "/models/Axle shaft.ply";
-
-      // Set crossOrigin to allow external images to be downloaded
-      link.crossOrigin = "anonymous";
-
-      // Set download attribute with a default filename or customize as needed
-      link.download = "/models/Axle shaft.ply";
-
-      // Append link to the document and trigger the download
-      document.body.appendChild(link);
-      link.click();
-
-      // Clean up by removing the link element
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Image download failed:", error);
+    if (!scene) {
+      message.error("No scene available to export.");
+      return;
     }
+
+    const exporter = new GLTFExporter();
+    exporter.parse(
+      scene,
+      (result) => {
+        const output = JSON.stringify(result);
+        const blob = new Blob([output], { type: "application/octet-stream" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "elevator_model.gltf";
+        link.click();
+        URL.revokeObjectURL(link.href);
+      },
+      { binary: true }
+    );
   };
 
   const handleExportImage = () => {
     try {
-      // Create a new anchor element
       const link = document.createElement("a");
-
-      // Set the href attribute to the image URL
       link.href = "/Kone_Logo.png";
-
-      // Set crossOrigin to allow external images to be downloaded
       link.crossOrigin = "anonymous";
-
-      // Set download attribute with a default filename or customize as needed
-      link.download = "/Kone_Logo.png";
-
-      // Append link to the document and trigger the download
+      link.download = "Kone_Logo.png";
       document.body.appendChild(link);
       link.click();
-
-      // Clean up by removing the link element
       document.body.removeChild(link);
     } catch (error) {
       console.error("Image download failed:", error);
@@ -110,7 +82,7 @@ const ExportModelButton = ({ scene, camera, renderer }) => {
         destroyOnClose
       >
         <Radio.Group value={exportType} onChange={handleExportTypeChange}>
-          <Radio value="model">Export as 3D Model (.ply)</Radio>
+          <Radio value="model">Export as 3D Model (.gltf)</Radio>
           <Radio value="image">Export as 2D Image (.png)</Radio>
         </Radio.Group>
       </Modal>
