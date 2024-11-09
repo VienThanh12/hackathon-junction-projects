@@ -113,7 +113,7 @@ const InlinePopup = ({ isOpen, onClose }) => {
 
   return (
     <div style={styles.popup}>
-      <h2>How to move the 3D objects</h2>
+      <h2>How to move a 3D object</h2>
       <p>
         w or ↑ - Move up<br/>
         a or ← - Move left<br/>
