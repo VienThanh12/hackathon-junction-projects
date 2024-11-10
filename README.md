@@ -34,7 +34,7 @@ Define the height of each floor in the building and adjust the number of floors 
 
 ### Modeling Page
 
-![Modeling Page](/src/assets/ModelingPage.png)
+![Modeling Page](/src/assets/ModellingPage.png)
 
 ### Our AI Training Model
 
