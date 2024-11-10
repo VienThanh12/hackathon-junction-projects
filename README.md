@@ -72,6 +72,10 @@ The next input, floor number height, we can define the height of every floor in 
 
    - Enables 3D modeling of existing structures, such as trucks and elevators, allowing users to create accurate and detailed digital representations.
 
+8. 🔵 **KONE Branding and Easy Identification**
+
+   - Features KONE branding for instant recognition, ensuring users easily identify it as part of the KONE platform.
+
 # Getting Started
 
 To make it easy for you to get started with Github, here's a list of recommended next steps.
