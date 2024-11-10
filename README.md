@@ -6,6 +6,10 @@
 
 KONE 3DNow is based on the KONE main page. It is supposed to showcase the initial 3D model of the building into which the elevators and related equipment models will be integrated for a live building twin.
 
+# View the project here
+
+[Link to the project](https://hackathon-junction-projects.onrender.com/)
+
 ![Main Page](/src/assets/MainPage.png)
 
 ## Input parameters 2D plans

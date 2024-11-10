@@ -32,9 +32,9 @@ const ExportModelButton = ({ scene }) => {
   const handleExportImage = () => {
     try {
       const link = document.createElement("a");
-      link.href = "/Kone_Logo.png";
+      link.href = "/2DPicture.png";
       link.crossOrigin = "anonymous";
-      link.download = "Kone_Logo.png";
+      link.download = "2DPicture.png";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
