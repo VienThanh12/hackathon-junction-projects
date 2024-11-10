@@ -1,8 +1,8 @@
-# Hackathon Project
+# Junction - Hackathon Project
 
-# Overview
+## Overview
 
-# BIM for any building, by anyone.
+### BIM for any building, by anyone.
 
 # Challenge
 
@@ -109,3 +109,19 @@ The project is licensed under the MIT license.
 # Contact
 
 Come check us out at the junction. Our team name is: Assemblers.
+
+This repository is meant as a code and recipe library to be re-used in work. You don't have to ask for a permission to use it, as it's open source, but do contact if you need advice or ideas on how to apply it to your particular use case.
+Preferred channel: Email.
+
+- Frontend:
+
+  - vien.ha@nokia.com
+  - kristian.lalev1@gmail.com
+
+- Backend (+ training AI Model)
+
+  - thanhduonghd114@gmail.com
+  - dmitri.kovalenko@wf34.ws
+
+- Design:
+  - htxuan842@gmail.com
