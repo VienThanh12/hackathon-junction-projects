@@ -86,6 +86,8 @@ Define the height of each floor in the building and adjust the number of floors 
 
 📈 **EXPERIMENTAL**
 
+[Link to the quick video](https://www.youtube.com/watch?v=VpZ_8jWjT5w)
+
 ## Listen to Our Speaker about AI Training Model
 
 [Link to the video](https://www.youtube.com/watch?v=tyo6iBdAe94)
