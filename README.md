@@ -1,16 +1,16 @@
 # Junction - Hackathon Project
 
-## Overview
+## BIM for any building, by anyone.
 
-### BIM for any building, by anyone.
-
-## Challenge
+### Challenge
 
 The key challenge is that there is no easy-to-use tool to:
 
 - 📐 **Create simple, recognizable 3D building models** based on limited input parameters, such as building address, 2D floor plans, and floor heights.
 - 🏗 **Import, position, and orient 3D equipment models**, especially elevators, within the building model using a drag-and-drop interface.
 - 🔄 **Export models and components** (e.g., equipment) into a standard 3D file format for further use in digital twin applications.
+
+# Overview
 
 ## Main page
 
