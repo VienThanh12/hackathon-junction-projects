@@ -215,7 +215,7 @@ const ThreeDModelViewer = ({
 
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas camera={{ position: [-25, 10, 20] }}>
+      <Canvas camera={{ position: [-5, 6, 10] }}>
         <Environment preset="sunset" />
 
         {/* Ambient light for base illumination */}
