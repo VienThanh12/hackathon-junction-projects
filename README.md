@@ -46,35 +46,49 @@ The next input, floor number height, we can define the height of every floor in 
 
 1. 🖼️ **Upload 2D and 3D Images**
 
-   - Supports uploading both 2D and 3D images, allowing flexibility in content type.
+   - Supports both 2D and 3D image uploads, offering flexibility for diverse content types.
 
-2. 📝 **Convert 2D to 3D Images**
+2. 📝 **AI-Powered 2D to 3D Conversion**
 
-   - Uses AI to convert 2D images into 3D, adding depth and dimension to flat images.
+   - Leverages AI to transform 2D images into 3D, adding depth and dimension for a richer visual experience.
 
 3. 🏗 **Import, Position, and Scale 3D Models**
 
-   - Provides drag-and-drop functionality for adding, positioning, and scaling 3D models of equipment, such as elevators, into building models for a seamless integration experience.
+   - Provides an intuitive drag-and-drop interface for adding, positioning, and scaling 3D models of equipment, such as elevators, directly into building models.
 
-4. 🔍 **Export Images in 2D (PNG) and 3D (PLY) Formats**
+4. 🔍 **Export in 2D (PNG) and 3D (PLY) Formats**
 
-   - Allows exporting images in both 2D and 3D formats for a variety of applications.
+   - Supports exporting in both 2D and 3D formats, making it versatile for different applications.
 
-5. 🌐 **Web Deployment**
+5. 🌐 **Web-Based Accessibility**
 
-   - Ensures accessibility from any location, offering broad availability and ease of use.
+   - Designed for easy access from any location, ensuring broad availability and usability.
 
-6. 📐 **Responsive Design**
+6. 📐 **Responsive User Interface**
 
-   - Designed to be responsive, providing a consistent and optimized user experience across devices and screen sizes.
+   - Built to be responsive, delivering a consistent and optimized user experience across all devices and screen sizes.
 
 7. 📍 **3D Modeling of Existing Structures**
 
-   - Enables 3D modeling of existing structures, such as trucks and elevators, allowing users to create accurate and detailed digital representations.
+   - Enables the creation of accurate 3D models of existing structures, like trucks and elevators, for detailed digital representations.
 
-8. 🔵 **KONE Branding and Easy Identification**
+8. 🔵 **KONE Branding for Instant Recognition**
 
-   - Features KONE branding for instant recognition, ensuring users easily identify it as part of the KONE platform.
+   - Includes KONE branding elements, making it easy for users to identify the platform as part of KONE’s offerings.
+
+9. 📊 **Data Visualization Tools**
+
+   - Incorporates tools for visualizing data, providing users with insights and graphical representations of information.
+
+10. 🔄 **Docker Support for Easy Access**
+
+    - Offers convenient deployment with Docker Compose and Dockerfile, simplifying setup and access.
+
+📈 \*\*EXPERIMENTAL:
+
+## Listen to our speaker
+
+[Link to the video](https://www.youtube.com/watch?v=Y78K7878787)
 
 # Getting Started
 
