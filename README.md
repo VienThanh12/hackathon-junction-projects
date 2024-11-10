@@ -46,30 +46,31 @@ The next input, floor number height, we can define the height of every floor in 
 
 1. 🖼️ **Upload 2D and 3D Images**
 
-   - Allows uploading both 2D and 3D images, providing flexibility in content type.
+   - Supports uploading both 2D and 3D images, allowing flexibility in content type.
 
 2. 📝 **Convert 2D to 3D Images**
 
-   - Uses AI to transform 2D images into 3D, adding depth and dimension to flat images.
+   - Uses AI to convert 2D images into 3D, adding depth and dimension to flat images.
 
-3. 🏗 **Import and Position, Scale of 3D Models**
+3. 🏗 **Import, Position, and Scale 3D Models**
 
-   - Drag-and-drop functionality for adding, positioning, and orienting 3D models of equipment, like elevators, into building models for a seamless integration experience.
+   - Provides drag-and-drop functionality for adding, positioning, and scaling 3D models of equipment, such as elevators, into building models for a seamless integration experience.
 
 4. 🔍 **Export Images in 2D (PNG) and 3D (PLY) Formats**
 
-   - Enables exporting images in both 2D and 3D formats for various applications.
+   - Allows exporting images in both 2D and 3D formats for a variety of applications.
 
 5. 🌐 **Web Deployment**
 
-   - Access the platform from anywhere, ensuring broad availability and ease of use.
+   - Ensures accessibility from any location, offering broad availability and ease of use.
 
-6. 📐 **Reponsive Design**
+6. 📐 **Responsive Design**
 
-   - The application is designed to be responsive, ensuring a consistent and optimal user experience across different devices and screen sizes.
+   - Designed to be responsive, providing a consistent and optimized user experience across devices and screen sizes.
 
-7. 📍 ** 3D Modeling Existing**
-   - 3D modeling of existing trucks, elevator, allowing users to create accurate and detailed digital representations of their structures.
+7. 📍 **3D Modeling of Existing Structures**
+
+   - Enables 3D modeling of existing structures, such as trucks and elevators, allowing users to create accurate and detailed digital representations.
 
 # Getting Started
 
