@@ -4,45 +4,45 @@
 
 ### BIM for any building, by anyone.
 
-# Challenge
+## Challenge
 
 The key challenge is that there is no easy-to-use tool to:
 
-- Create a simple and identifiable 3D model of the building based on a limited set of input parameters available such as the building address and/or 2D floor plans, and floor heights
-- Import, position and orient existing equipment 3D models, especially elevators to the 3D model of the building with drag-and-drop type of process.
-- Export the model and its components (e.g., equipment) into a standard 3D file format for further processing, e.g., deploying the model as part of a digital twin application.
+- 📐 **Create simple, recognizable 3D building models** based on limited input parameters, such as building address, 2D floor plans, and floor heights.
+- 🏗 **Import, position, and orient 3D equipment models**, especially elevators, within the building model using a drag-and-drop interface.
+- 🔄 **Export models and components** (e.g., equipment) into a standard 3D file format for further use in digital twin applications.
 
 ## Main page
 
-KONE 3DNow is based on the KONE main page. It is supposed to showcase the initial 3D model of the building into which the elevators and related equipment models will be integrated for a live building twin.
+KONE 3DNow is based on the KONE main page. It showcases an initial 3D model of the building where elevator and equipment models are integrated to create a live digital twin.
 
-# View the project here
+### View the project here
 
 [Link to the project](https://hackathon-junction-projects.onrender.com/)
 
 ![Main Page](/src/assets/MainPage.png)
 
-## Input parameters 2D plans
+### Input Parameters: 2D Plans
 
 ![Home Page](/src/assets/HomePage.png)
 
-## Add floor height/s (in meters)
+### Add Floor Heights (in meters)
 
-The next input, floor number height, we can define the height of every floor in the building. We can modify the number of floors.
+Define the height of each floor in the building and adjust the number of floors as needed.
 
 ![Home Page 2](/src/assets/HomePage2.png)
 
-## Modelling Page
+### Modeling Page
 
-![Modelling Page](/src/assets/ModellingPage.png)
+![Modeling Page](/src/assets/ModelingPage.png)
 
-## Our AI Training Model
+### Our AI Training Model
 
 ![Our Training Model 1](/src/assets/OurTrainingModel1.jpg)
 
 ![Our Training Model 2](/src/assets/OurTrainingModel2.jpg)
 
-# Key Features
+## Key Features
 
 1. 🖼️ **Upload 2D and 3D Images**
 
@@ -50,7 +50,7 @@ The next input, floor number height, we can define the height of every floor in 
 
 2. 📝 **AI-Powered 2D to 3D Conversion**
 
-   - Leverages AI to transform 2D images into 3D, adding depth and dimension for a richer visual experience.
+   - Uses AI to transform 2D images into 3D, adding depth and dimension for a richer visual experience.
 
 3. 🏗 **Import, Position, and Scale 3D Models**
 
@@ -62,45 +62,43 @@ The next input, floor number height, we can define the height of every floor in 
 
 5. 🌐 **Web-Based Accessibility**
 
-   - Designed for easy access from any location, ensuring broad availability and usability.
+   - Ensures easy access from any location, offering broad availability and usability.
 
 6. 📐 **Responsive User Interface**
 
-   - Built to be responsive, delivering a consistent and optimized user experience across all devices and screen sizes.
+   - Designed to be responsive, delivering a consistent and optimized experience across all devices and screen sizes.
 
 7. 📍 **3D Modeling of Existing Structures**
 
    - Enables the creation of accurate 3D models of existing structures, like trucks and elevators, for detailed digital representations.
 
-8. 🔵 **KONE Branding for Instant Recognition**
+8. 🔵 **KONE Branding for Easy Recognition**
 
    - Includes KONE branding elements, making it easy for users to identify the platform as part of KONE’s offerings.
 
 9. 📊 **Data Visualization Tools**
 
-   - Incorporates tools for visualizing data, providing users with insights and graphical representations of information.
+   - Provides data visualization tools for insights and graphical representations.
 
-10. 🔄 **Docker Support for Easy Access**
+10. 🐳 **Docker Support for Easy Access**
 
     - Offers convenient deployment with Docker Compose and Dockerfile, simplifying setup and access.
 
-📈 \*\*EXPERIMENTAL:
+📈 **EXPERIMENTAL**
 
-## Listen to our speaker
+## Listen to Our Speaker about AI Training Model
 
-[Link to the video](https://www.youtube.com/watch?v=Y78K7878787)
+[Link to the video](https://www.youtube.com/watch?v=tyo6iBdAe94)
 
-# Getting Started
+## Getting Started
 
-To make it easy for you to get started with Github, here's a list of recommended next steps.
+### Prerequisites
 
-## Prerequisites
+- **Node.js and npm** are required to run the React frontend. You can download them from the official [Node.js website](https://nodejs.org/).
 
-- You’ll need Node.js and npm (Node Package Manager) to run the React frontend. You can download them from the official website: Node.js.
+### 🚀 Quick Start
 
-## 🚀 Quick start
-
-### Option 1:
+#### Option 1: Run Locally
 
 1. **Clone the Repository**
 
@@ -149,6 +147,30 @@ To make it easy for you to get started with Github, here's a list of recommended
    ```bash
    http://localhost:5173
    ```
+
+## Known Issues
+
+1. **Backend and Frontend Communication Not Yet Established**
+
+   - Due to the complexity of handling 3D models, we focused on the frontend and AI model training first. With limited time in the Junction hackathon, backend connections are still pending but will be completed soon.
+
+2. **AI Model Still in Development**
+
+   - Our initial model is trained on a small dataset. Future versions will use larger datasets to improve performance.
+
+3. **UI Improvements Needed**
+
+   - Initial efforts focused on functionality over design. UI enhancements are planned for future updates.
+
+4. **Exporting 2D and 3D Pictures from 3D View Not Available Yet**
+
+   - This feature is in development and will be included in a future release.
+
+# Contributing
+
+We're are open to contributions, so please fork this repository and contribute by making pull requests. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 # License
 
