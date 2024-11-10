@@ -2,6 +2,16 @@
 
 # Overview
 
+# BIM for any building, by anyone.
+
+# Challenge
+
+The key challenge is that there is no easy-to-use tool to:
+
+- Create a simple and identifiable 3D model of the building based on a limited set of input parameters available such as the building address and/or 2D floor plans, and floor heights
+- Import, position and orient existing equipment 3D models, especially elevators to the 3D model of the building with drag-and-drop type of process.
+- Export the model and its components (e.g., equipment) into a standard 3D file format for further processing, e.g., deploying the model as part of a digital twin application.
+
 ## Main page
 
 KONE 3DNow is based on the KONE main page. It is supposed to showcase the initial 3D model of the building into which the elevators and related equipment models will be integrated for a live building twin.
@@ -25,6 +35,12 @@ The next input, floor number height, we can define the height of every floor in 
 ## Modelling Page
 
 ![Modelling Page](/src/assets/ModellingPage.png)
+
+## Our AI Training Model
+
+![Home Page 2](/src/assets/OurTrainingModel1.jpg)
+
+![Home Page 2](/src/assets/OurTrainingModel2.jpg)
 
 # Getting Started
 
@@ -85,14 +101,6 @@ To make it easy for you to get started with Github, here's a list of recommended
    ```bash
    http://localhost:5173
    ```
-
-# Challenge
-
-The key challenge is that there is no easy-to-use tool to:
-
-Create a simple and identifiable 3D model of the building based on a limited set of input parameters available such as the building address and/or 2D floor plans, and floor heights
-Import, position and orient existing equipment 3D models, especially elevators to the 3D model of the building with drag-and-drop type of process.
-Export the model and its components (e.g., equipment) into a standard 3D file format for further processing, e.g., deploying the model as part of a digital twin application.
 
 # License
 
