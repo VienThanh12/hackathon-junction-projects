@@ -38,9 +38,38 @@ The next input, floor number height, we can define the height of every floor in 
 
 ## Our AI Training Model
 
-![Home Page 2](/src/assets/OurTrainingModel1.jpg)
+![Our Training Model 1](/src/assets/OurTrainingModel1.jpg)
 
-![Home Page 2](/src/assets/OurTrainingModel2.jpg)
+![Our Training Model 2](/src/assets/OurTrainingModel2.jpg)
+
+# Key Features
+
+1. 🖼️ **Upload 2D and 3D Images**
+
+   - Allows uploading both 2D and 3D images, providing flexibility in content type.
+
+2. 📝 **Convert 2D to 3D Images**
+
+   - Uses AI to transform 2D images into 3D, adding depth and dimension to flat images.
+
+3. 🏗 **Import and Position, Scale of 3D Models**
+
+   - Drag-and-drop functionality for adding, positioning, and orienting 3D models of equipment, like elevators, into building models for a seamless integration experience.
+
+4. 🔍 **Export Images in 2D (PNG) and 3D (PLY) Formats**
+
+   - Enables exporting images in both 2D and 3D formats for various applications.
+
+5. 🌐 **Web Deployment**
+
+   - Access the platform from anywhere, ensuring broad availability and ease of use.
+
+6. 📐 **Reponsive Design**
+
+   - The application is designed to be responsive, ensuring a consistent and optimal user experience across different devices and screen sizes.
+
+7. 📍 ** 3D Modeling Existing**
+   - 3D modeling of existing trucks, elevator, allowing users to create accurate and detailed digital representations of their structures.
 
 # Getting Started
 
