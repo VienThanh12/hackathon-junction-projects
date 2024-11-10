@@ -30,7 +30,7 @@ KONE 3DNow is based on the KONE main page. It showcases an initial 3D model of t
 
 Define the height of each floor in the building and adjust the number of floors as needed.
 
-![Home Page 2](/src/assets/HomePage2.png)
+![Home Page 2](/src/assets/HomePage2.png)ModellingPage.png
 
 ### Modeling Page
 
