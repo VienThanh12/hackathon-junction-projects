@@ -10,6 +10,7 @@ import {
 import { Model as Elevator } from "./Elevator";
 import { Model as Wall1 } from "./Wall1";
 import { Model as Wall2 } from "./Wall2";
+import { Model as Ground } from "./Ground";
 import { useLoader } from "@react-three/fiber";
 import { PLYLoader } from "three/examples/jsm/loaders/PLYLoader";
 import PopUpButton from "./PopUpButton"; 
@@ -21,9 +22,9 @@ function Model() {
   return (
     <mesh
       geometry={geometry}
-      scale={[20, 20, 20]}
-      position={[-10, -10, 0]}
-      rotation={[30, 0, 0]}
+      scale={[15, 15, 15]}
+      position={[5, -22, -20]}
+      rotation={[29.80, 0, 0]}
     >
       <meshStandardMaterial vertexColors={true} />
     </mesh>
@@ -237,7 +238,7 @@ const ThreeDModelViewer = ({
 
   return (
     <div style={{ height: "80vh", background: "#f0f0f0" }}>
-      <Canvas camera={{ position: [0, 0, 20] }}>
+      <Canvas camera={{ position: [-25, 10, 20] }}>
         <Environment preset="sunset" />
 
         {/* Ambient light for base illumination */}
@@ -267,9 +268,20 @@ const ThreeDModelViewer = ({
 
         <ContactShadows opacity={0.7} />
         
-        <Wall1 />
-        <Wall2 />
-
+        <Wall1 
+          position={[-50.5, -22, -24]}
+          scale={[7, 5, 8]}
+          rotation={[190, 0, 0]}
+        />
+        <Wall2 
+          position={[16, -21, -10]}
+          scale={[6, 5, 8]}
+          rotation={[190, 0, 77]}
+        />
+        <Ground
+          position={[0, -8, -0.5]}
+          scale={[5, 5, 5]} 
+        />
 
         {model && okFile && <MovableObject />}
 
