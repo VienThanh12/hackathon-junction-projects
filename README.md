@@ -190,7 +190,7 @@ Preferred channel: Email.
   - vien.ha@nokia.com
   - kristian.lalev1@gmail.com
 
-- Backend (+ training AI Model) (Python + Machine Learning + Neural Networks)
+- Backend (+ training AI Model) (Python + Machine Learning + Neural Networks + Spartial AI)
 
   - thanhduonghd114@gmail.com
   - dmitri.kovalenko@wf34.ws
