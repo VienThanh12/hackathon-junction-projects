@@ -8,25 +8,36 @@ const ExportModelButton = ({ scene }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const handleExportModel = () => {
-    if (!scene) {
-      message.error("No scene available to export.");
-      return;
+    try {
+      const link = document.createElement("a");
+      link.href = "./models/final-lego2-mesh.ply";
+      link.crossOrigin = "anonymous";
+      link.download = "./models/final-lego2-mesh.ply";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Image download failed:", error);
     }
+    // if (!scene) {
+    //   message.error("No scene available to export.");
+    //   return;
+    // }
 
-    const exporter = new GLTFExporter();
-    exporter.parse(
-      scene,
-      (result) => {
-        const output = JSON.stringify(result);
-        const blob = new Blob([output], { type: "application/octet-stream" });
-        const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.download = "scene.gltf";
-        link.click();
-        URL.revokeObjectURL(link.href);
-      },
-      { binary: true }
-    );
+    // const exporter = new GLTFExporter();
+    // exporter.parse(
+    //   scene,
+    //   (result) => {
+    //     const output = JSON.stringify(result);
+    //     const blob = new Blob([output], { type: "application/octet-stream" });
+    //     const link = document.createElement("a");
+    //     link.href = URL.createObjectURL(blob);
+    //     link.download = "./a";
+    //     link.click();
+    //     URL.revokeObjectURL(link.href);
+    //   },
+    //   { binary: true }
+    // );
   };
 
   const handleExportImage = () => {
